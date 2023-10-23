@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">TaskTrackerApp</string>
     <string name="name_header">Enter Task</string>
+    <string name="default_hint">Tell all the puppies you see Esteban said hi</string>
 </resources>
