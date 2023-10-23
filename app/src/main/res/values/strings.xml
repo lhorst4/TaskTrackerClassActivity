@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">TaskTrackerApp</string>
+    <string name="name_header">Enter Task</string>
+</resources>
