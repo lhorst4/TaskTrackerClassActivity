@@ -10,12 +10,12 @@ import android.net.Uri;
 
 public class TaskDBProvider extends ContentProvider {
 
-    private static String DBNAME = "TASKSDB";
-    private static String TABLE_NAME = "Tasks";
-    private static String COLUMN_1NAME = "Description";
-    private static String COLUMN_2NAME = "Owner";
-    private static String AUTHORITY = "com.belmont.tasktracker";
-    private static Uri contentURI = Uri.parse("content://" + AUTHORITY + "/" + DBNAME);
+    public static final String DBNAME = "TASKSDB";
+    public static final String TABLE_NAME = "Tasks";
+    public static final String COLUMN_1NAME = "Description";
+    public static final String COLUMN_2NAME = "Owner";
+    public static final String AUTHORITY = "com.belmont.tasktracker";
+    public static final Uri contentURI = Uri.parse("content://" + AUTHORITY + "/" + DBNAME);
     private MainDatabaseHelper SQLHelper;
     private static String CREATE_DB_QUERY = "CREATE TABLE " + TABLE_NAME +
             "( _ID INTEGER PRIMARY KEY," +

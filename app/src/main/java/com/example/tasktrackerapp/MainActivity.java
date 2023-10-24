@@ -2,6 +2,7 @@ package com.example.tasktrackerapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ContentValues;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     EditText task_input;
     EditText owner_input;
     Button recordTaskButton;
+    TaskDBProvider taskProvider;
 
     View.OnClickListener listener = new View.OnClickListener() {
         @Override
@@ -30,6 +32,13 @@ public class MainActivity extends AppCompatActivity {
             tastText = tastText.trim();
             if(tastText.length()>0) {
                 Task newTask = new Task(tastText, owner);
+
+                ContentValues values = new ContentValues();
+                values.put(TaskDBProvider.COLUMN_1NAME, newTask.getTask());
+                values.put(TaskDBProvider.COLUMN_2NAME, newTask.getTask());
+
+                taskProvider.insert(TaskDBProvider.contentURI, values);
+
                 addToList(newTask);
             }else{
                 Toast.makeText(getApplicationContext(),"Cannot pass an empty task", Toast.LENGTH_LONG).show();
@@ -45,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         owner_input = findViewById(R.id.owner_et);
         recordTaskButton = findViewById(R.id.recordTaskButton);
         recordTaskButton.setOnClickListener(listener);
-
+        taskProvider = new TaskDBProvider();
     }
 
     public void addToList(Task t){
