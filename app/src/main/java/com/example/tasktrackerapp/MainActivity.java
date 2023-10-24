@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     ListView listView;
     EditText task_input;
     EditText owner_input;
+    Button recordTaskButton;
 
     View.OnClickListener listener = new View.OnClickListener() {
         @Override
@@ -31,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
                 Task newTask = new Task(tastText, owner);
                 addToList(newTask);
             }else{
-                Toast.makeText(getApplicationContext(),"Cannot ass an empty task", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),"Cannot pass an empty task", Toast.LENGTH_LONG).show();
             }
         }
     };
@@ -42,6 +43,9 @@ public class MainActivity extends AppCompatActivity {
         listView = findViewById(R.id.task_list);
         task_input = findViewById(R.id.input_et);
         owner_input = findViewById(R.id.owner_et);
+        recordTaskButton = findViewById(R.id.recordTaskButton);
+        recordTaskButton.setOnClickListener(listener);
+
     }
 
     public void addToList(Task t){
