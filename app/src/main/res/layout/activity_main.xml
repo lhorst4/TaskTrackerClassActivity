@@ -16,10 +16,10 @@
         app:layout_constraintHorizontal_bias="0.104"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.5" />
+        app:layout_constraintVertical_bias="0.32" />
 
     <EditText
-        android:id="@+id/input_et"
+        android:id="@+id/owner_et"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="49dp"
@@ -28,6 +28,29 @@
         android:hint="@string/default_hint"
         app:layout_constraintBaseline_toBaselineOf="@+id/header_tv"
         app:layout_constraintStart_toEndOf="@+id/header_tv" />
+
+    <TextView
+        android:id="@+id/owner_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/owner_header"
+        app:layout_constraintBottom_toTopOf="@id/task_list"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.104"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.783" />
+
+    <EditText
+        android:id="@+id/input_et"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:ems="10"
+        android:hint="@string/owner_hint"
+        android:inputType="text"
+        app:layout_constraintBaseline_toBaselineOf="@+id/owner_tv"
+        app:layout_constraintStart_toEndOf="@+id/owner_tv" />
 
     <ListView
         android:id="@+id/task_list"
@@ -41,6 +64,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="87dp" />
+        app:layout_constraintGuide_begin="153dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

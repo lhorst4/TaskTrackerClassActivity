@@ -16,16 +16,19 @@ import java.util.LinkedList;
 
 public class MainActivity extends AppCompatActivity {
 
-    LinkedList<String> tasks;
+    LinkedList<Task> tasks;
     ListView listView;
-    EditText input;
+    EditText task_input;
+    EditText owner_input;
 
     View.OnClickListener listener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            String newTask = input.getText().toString();
-            newTask = newTask.trim();
-            if(newTask.length()>0) {
+            String tastText = task_input.getText().toString();
+            String owner = owner_input.getText().toString();
+            tastText = tastText.trim();
+            if(tastText.length()>0) {
+                Task newTask = new Task(tastText, owner);
                 addToList(newTask);
             }else{
                 Toast.makeText(getApplicationContext(),"Cannot ass an empty task", Toast.LENGTH_LONG).show();
@@ -37,18 +40,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         listView = findViewById(R.id.task_list);
-        input = findViewById(R.id.input_et);
+        task_input = findViewById(R.id.input_et);
+        owner_input = findViewById(R.id.owner_et);
     }
 
-    public void addToList(String t){
+    public void addToList(Task t){
         if(tasks == null){
             tasks =  new LinkedList<>();
         }
-        if(tasks.size()==7) {
-            tasks.remove(0);
-        }
         tasks.add(t);
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, tasks);
+        ArrayAdapter<Task> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, tasks);
         listView.setAdapter(adapter);
     }
 
